@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   get '/pokemons/:id', to: 'pokemons#show'
 
   get '/teams', to: 'teams#index'
+  get '/teams/:id', to: 'teams#index'
   post '/teams', to: 'teams#create'
   delete '/teams/:id', to: 'teams#delete'
+
+  get '/pokemons/moves', to: 'moves#show'
 
   post '/addpokemon', to: 'team_pokemons#create'
   delete '/team_pokemons/:id', to: 'team_pokemons#delete'
@@ -17,8 +20,10 @@ Rails.application.routes.draw do
   get '/battles', to: 'battles#index'
   get '/currentbattle', to: 'battles#show'
   post '/battles', to: 'battles#create'
+  delete '/battles/:id', to: 'battles#delete'
   patch '/join', to: 'battles#join'
   patch '/fight', to: 'battles#fight'
+
 
   mount ActionCable.server => '/consumer'
 

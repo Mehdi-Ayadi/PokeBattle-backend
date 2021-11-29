@@ -1359,7 +1359,7 @@ POKEMONS = [
       ]
     },
     {
-      "species": "jigglypuff",
+      "species": "sabita",
       "types": [
         "normal"
       ],

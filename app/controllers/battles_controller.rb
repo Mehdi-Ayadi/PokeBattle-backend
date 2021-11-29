@@ -39,6 +39,17 @@ class BattlesController < ApplicationController
 
     end
 
+    def delete
+        battle = @current_user.battles.find(params[:id])
+        if battle
+            battle.destroy()
+            battle = Battle.find(battle.room_name)
+            render json: { battle: BattleSerializer.new(battle), message: "#{battle.room_name} was deleted" }, include: '**'
+        else
+            render json: { error: "Unable to delete battle" }, status: :unauthorized
+        end
+    end
+
     def join
         if @current_user.teams.length > 0
             team = @current_user.teams[battle_params[:team_index].to_i]

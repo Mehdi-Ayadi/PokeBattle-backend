@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_212215) do
   enable_extension "plpgsql"
 
   create_table "battles", force: :cascade do |t|
-    t.string "room_name"
+    t.string "room_name", null=false
     t.string "status"
     t.json "red_team"
     t.integer "red_active", default: 0
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_09_08_212215) do
     t.string "turn"
     t.string "message"
     t.integer "winner"
+    t.integer "battle_id", null=false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
